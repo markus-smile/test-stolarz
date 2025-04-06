@@ -1,0 +1,180 @@
+/**
+ * Process CSS - Stolarz Koszalin
+ * Styl dla sekcji Proces pracy
+ */
+
+#proces {
+    background-color: var(--neutral-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    background-color: var(--secondary);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+}
+
+.timeline-content {
+    width: 85%;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    transition: var(--transition);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--white);
+    border: 3px solid var(--secondary);
+    border-radius: 50%;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.timeline-item:hover .timeline-content::before {
+    background-color: var(--secondary);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -60px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -60px;
+}
+
+.timeline-content h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeline-content h3 i {
+    color: var(--secondary);
+    font-size: 1.2em;
+}
+
+.timeline-content p {
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.timeline-number {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    top: 5px;
+    z-index: 2;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-item:nth-child(odd) .timeline-number {
+    right: calc(50% - 25px);
+}
+
+.timeline-item:nth-child(even) .timeline-number {
+    left: calc(50% - 25px);
+}
+
+.timeline-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-top: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+@media screen and (max-width: 992px) {
+    .process-timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        padding-right: 0;
+        justify-content: flex-start;
+        padding-left: 80px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: 80px;
+    }
+    
+    .timeline-content {
+        width: 100%;
+    }
+    
+    .timeline-item .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -50px;
+    }
+    
+    .timeline-item .timeline-number,
+    .timeline-item:nth-child(even) .timeline-number {
+        left: 5px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-content::before {
+        left: -40px;
+    }
+}

@@ -1,0 +1,35 @@
+/**
+ * Services CSS - Stolarz Koszalin
+ * Styl dla sekcji Usługi
+ */
+
+#uslugi {
+    background-color: var(--neutral-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Style dla kart usług zostały przeniesione do components.css */
+
+@media screen and (max-width: 992px) {
+    .services-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+    }
+}
